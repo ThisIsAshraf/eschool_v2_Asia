@@ -1,0 +1,87 @@
+<!-- Including Navbar and Left Sidebar -->
+<?php 
+if (!isset($_SESSION)) {
+    session_start();
+}
+include_once('./admin_header.php');
+include_once('../Partials/_dbconnect.php');
+if(isset( $_SESSION['admin_Email'])){
+    $admin_LoginEmail=$_SESSION['admin_Email'];
+}else{
+    echo "<script>location.href = '../index.php'</script>";
+}
+?>
+<!-- Start Left Side Bar-->
+<div class="col-sm-9 mt-5">
+    <!-- Start Data Viewer -->
+    <div class="row mx-5 text-center">
+        <div class="col-sm-4 mt-5">
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card-header">Courses</div>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        5
+                    </h4>
+                    <a href="#" class="btn text-white">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 mt-5">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">Students</div>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        25
+                    </h4>
+                    <a href="#" class="btn text-white">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 mt-5">
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                    sold
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        3
+                    </h4>
+                    <a href="" class="btn text-white"> View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Data Viewer -->
+
+    <!-- Start Table -->
+    <div class="mx-5 mt-5 text-center">
+        <p class="bg-dark text-white p-2">Course Ordered</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Student Email</th>
+                    <th scope="col">Order Date</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">22</th>
+                    <td>100</td>
+                    <td>alamshihab526@gmail.com</td>
+                    <td>22.01.2023</td>
+                    <td>450</td>
+                    <td><button type="submit" class="btn btn-secondary" name="oderder_delete" value="Delete"><i
+                                class="far fa-trash-alt"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- End Table -->
+</div>
+
+<!-- Including Footer -->
+<?php include_once('./admin_footer.php')?>
